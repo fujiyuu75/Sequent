@@ -11,19 +11,52 @@ import android.view.animation.AlphaAnimation;
 public class Sequent {
     private static final String TAG = "Sequent";
 
-    private static final int DEFAULT_OFFSET = 50;
-    private static final int DEFAULT_DURATION = 300;
+    private ViewGroup vg;
+    private int number = 0;
+    private final int startOffset;
+    private final int duration;
 
-    private static int number = 0;
-    private static int startOffset = 50;
-    private static int duration = 500;
+    public static class Builder {
+        private static final int DEFAULT_OFFSET = 50;
+        private static final int DEFAULT_DURATION = 300;
 
-    public static void start(ViewGroup vg) {
-        Log.d(TAG, String.format("%s %s", "start", "in"));
+        private ViewGroup vg;
+        private int startOffset = DEFAULT_OFFSET;
+        private int duration = DEFAULT_DURATION;
+
+        Builder(ViewGroup vg) {
+            this.vg = vg;
+        }
+
+        public Builder offset(int offset) {
+            this.startOffset = offset;
+            return this;
+        }
+
+        public Builder duration(int duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        public Sequent start() {
+            return new Sequent(this);
+        }
+    }
+
+    public static Builder origin(ViewGroup vg) {
+        Log.d(TAG, String.format("%s %s", "origin", "in"));
+        return new Builder(vg);
+    }
+
+    private Sequent(Builder builder) {
+        this.vg = builder.vg;
+        this.startOffset = builder.startOffset;
+        this.duration = builder.duration;
+
         findChildLayouts(vg);
     }
 
-    protected static void findChildLayouts(ViewGroup viewGroup) {
+    protected void findChildLayouts(ViewGroup viewGroup) {
         int count = viewGroup.getChildCount();
         Log.d(TAG, String.format("%s %s", "count", String.valueOf(count)));
 
@@ -38,11 +71,9 @@ public class Sequent {
             }
             Log.d(TAG, String.format("%s %s %s %s", "child", viewGroup.getClass().getName(), "id", String.valueOf(viewGroup.getId())));
         }
-
-
     }
 
-    protected static void setAnimation(View v) {
+    protected void setAnimation(View v) {
         AlphaAnimation anim = new AlphaAnimation(0, 1);
         anim.setStartOffset(number * startOffset);
         anim.setDuration(number * duration);
