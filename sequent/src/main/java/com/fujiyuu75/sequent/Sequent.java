@@ -5,22 +5,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * Created by y_fujikawa on 2017/05/24.
  */
 public class Sequent {
+    private static final String TAG = "Sequent";
+
+    private static final int DEFAULT_OFFSET = 50;
+    private static final int DEFAULT_DURATION = 300;
 
     private static int number = 0;
     private static int startOffset = 50;
     private static int duration = 500;
 
     public static void start(ViewGroup vg) {
+        Log.d(TAG, String.format("%s %s", "start", "in"));
         findChildLayouts(vg);
     }
 
-    private static void findChildLayouts(ViewGroup viewGroup) {
+    protected static void findChildLayouts(ViewGroup viewGroup) {
         int count = viewGroup.getChildCount();
         Log.d(TAG, String.format("%s %s", "count", String.valueOf(count)));
 
@@ -35,9 +38,11 @@ public class Sequent {
             }
             Log.d(TAG, String.format("%s %s %s %s", "child", viewGroup.getClass().getName(), "id", String.valueOf(viewGroup.getId())));
         }
+
+
     }
 
-    private static void setAnimation(View v) {
+    protected static void setAnimation(View v) {
         AlphaAnimation anim = new AlphaAnimation(0, 1);
         anim.setStartOffset(number * startOffset);
         anim.setDuration(number * duration);
