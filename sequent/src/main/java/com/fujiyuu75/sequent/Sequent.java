@@ -5,14 +5,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by y_fujikawa on 2017/05/24.
  */
 public class Sequent {
     private static final String TAG = "Sequent";
 
+    private List<View> viewList = new ArrayList<>();
     private ViewGroup vg;
-    private int number = 0;
     private final int startOffset;
     private final int duration;
 
@@ -53,10 +56,11 @@ public class Sequent {
         this.startOffset = builder.startOffset;
         this.duration = builder.duration;
 
-        findChildLayouts(vg);
+        fetchChildLayouts(vg);
+        setAnimation();
     }
 
-    protected void findChildLayouts(ViewGroup viewGroup) {
+    protected void fetchChildLayouts(ViewGroup viewGroup) {
         int count = viewGroup.getChildCount();
         Log.d(TAG, String.format("%s %s", "count", String.valueOf(count)));
 
@@ -64,21 +68,25 @@ public class Sequent {
             View view = viewGroup.getChildAt(i);
             if (view instanceof ViewGroup) {
                 Log.d(TAG, String.format("%s %s", "find", "viewGroup"));
-                findChildLayouts((ViewGroup) view);
+                fetchChildLayouts((ViewGroup) view);
             } else {
                 Log.d(TAG, String.format("%s %s", "find", "view"));
-                setAnimation(view);
+                viewList.add(view);
+//                setAnimation(view);
             }
             Log.d(TAG, String.format("%s %s %s %s", "child", viewGroup.getClass().getName(), "id", String.valueOf(viewGroup.getId())));
         }
     }
 
-    protected void setAnimation(View v) {
-        AlphaAnimation anim = new AlphaAnimation(0, 1);
-        anim.setStartOffset(number * startOffset);
-        anim.setDuration(number * duration);
-        v.setAnimation(anim);
-
-        number++;
+    protected void setAnimation() {
+        int count = viewList.size();
+        Log.d(TAG, String.format("%s %s", "viewList.size()", viewList.size()));
+        for (int i = 0; i < count; i++){
+            AlphaAnimation anim = new AlphaAnimation(0, 1);
+            anim.setStartOffset(i * startOffset);
+            anim.setDuration(duration);
+            Log.d(TAG, String.format("%s %s", i * startOffset, i * duration));
+            viewList.get(i).setAnimation(anim);
+        }
     }
 }
