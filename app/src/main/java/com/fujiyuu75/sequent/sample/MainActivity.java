@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private int number = 0;
+    private int startOffset = 50;
+    private int duration = 500;
     SparseArray<View> array = new SparseArray<>();
 
     @Override
@@ -20,25 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Sequent sequent = new Sequent(contentView);
-//        Log.d(TAG, String.format("%s %s", "count", sequent.getCount()));
-
         LinearLayout layout = (LinearLayout)findViewById(R.id.layout);
         Log.d(TAG, String.format("%s %s %s %s", "layout", layout.getClass().getName(), "id", layout.getId()));
-
-        View contentView = findViewById(android.R.id.content);
-        Log.d(TAG, String.format("%s %s %s %s", "contentView", contentView.getClass().getName(), "id", contentView.getId()));
-
-        ViewGroup rootView = (ViewGroup)contentView.getRootView();
-        Log.d(TAG, String.format("%s %s %s %s", "rootView", rootView.getClass().getName(), "id", rootView.getId()));
 
         findChildLayouts(layout);
     }
 
     private void setAnimation(View v) {
         AlphaAnimation anim = new AlphaAnimation(0, 1);
-        anim.setStartOffset(number * 50);
-        anim.setDuration(number * 500);
+        anim.setStartOffset(number * startOffset);
+        anim.setDuration(number * duration);
         v.setAnimation(anim);
 
         number++;
@@ -61,5 +54,4 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, String.format("%s %s %s %s", "child", viewGroup.getClass().getName(), "id", String.valueOf(viewGroup.getId())));
         }
     }
-
 }
