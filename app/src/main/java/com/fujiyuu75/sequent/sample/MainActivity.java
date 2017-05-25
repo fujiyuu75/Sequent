@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
+import com.fujiyuu75.sequent.Sequent;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -23,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.layout);
+        Sequent.start(layout);
+
         Log.d(TAG, String.format("%s %s %s %s", "layout", layout.getClass().getName(), "id", layout.getId()));
 
-        findChildLayouts(layout);
+//        findChildLayouts(layout);
     }
 
     private void setAnimation(View v) {
