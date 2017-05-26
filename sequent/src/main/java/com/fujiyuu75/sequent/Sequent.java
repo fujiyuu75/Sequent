@@ -3,6 +3,7 @@ package com.fujiyuu75.sequent;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,8 @@ public class Sequent {
     private final int startOffset;
     private final int duration;
     private final Direction direction;
+    private final Context context;
+    private final int animId;
 
     public static class Builder {
         private static final int DEFAULT_OFFSET = 70;
@@ -33,6 +36,8 @@ public class Sequent {
         private int startOffset = DEFAULT_OFFSET;
         private int duration = DEFAULT_DURATION;
         private Direction direction = Direction.FORWARD;
+        private Context context;
+        private int animId;
 
         Builder(ViewGroup vg) {
             this.vg = vg;
@@ -53,6 +58,12 @@ public class Sequent {
             return this;
         }
 
+        public Builder anim(Context context, int animId) {
+            this.context = context;
+            this.animId = animId;
+            return this;
+        }
+
         public Sequent start() {
             return new Sequent(this);
         }
@@ -68,6 +79,8 @@ public class Sequent {
         this.startOffset = builder.startOffset;
         this.duration = builder.duration;
         this.direction = builder.direction;
+        this.context = builder.context;
+        this.animId = builder.animId;
 
         fetchChildLayouts(vg);
         arrangeLayouts(viewList);
@@ -109,13 +122,9 @@ public class Sequent {
         Log.d(TAG, String.format("%s %s", "viewList.size()", viewList.size()));
         for (int i = 0; i < count; i++) {
             final View view = viewList.get(i);
+            final int offset = i * startOffset;
 
-            List<Animator> animatorList = new ArrayList<>();
-            animatorList.add(getStartObjectAnimator(i, view));
-            animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_X, 0.0f, 1.0f));
-            animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.0f, 1.0f));
-            animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
-            animatorList.add(ObjectAnimator.ofFloat(view, "pivotY", 0.5f));
+            List<Animator> animatorList = getAnimators(offset, view);
 
             AnimatorSet set = new AnimatorSet();
             set.playTogether(animatorList);
@@ -164,19 +173,26 @@ public class Sequent {
 //            objectAnimator.start();
 
             Log.d(TAG, String.format("%s %s", i * startOffset, duration));
-
-//            AlphaAnimation anim = new AlphaAnimation(0, 1);
-//            anim.setStartOffset(i * startOffset);
-//            anim.setDuration(duration);
-//            Log.d(TAG, String.format("%s %s", i * startOffset, i * duration));
-//            viewList.get(i).setAnimation(anim);
         }
     }
 
     @NonNull
-    private ObjectAnimator getStartObjectAnimator(int i, final View view) {
+    private List<Animator> getAnimators(int offset, View view) {
+        List<Animator> animatorList = new ArrayList<>();
+        animatorList.add(getStartObjectAnimator(offset, view));
+//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_X, 0.0f, 1.0f));
+//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.0f, 1.0f));
+//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
+//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotY", 0.5f));
+
+        animatorList.add(ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 ));
+        return animatorList;
+    }
+
+    @NonNull
+    private ObjectAnimator getStartObjectAnimator(int offset, final View view) {
         ObjectAnimator ob = ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
-        ob.setDuration(1).setStartDelay(i * startOffset);
+        ob.setDuration(1).setStartDelay(offset);
         ob.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator anim) {
@@ -195,5 +211,6 @@ public class Sequent {
         });
         return ob;
     }
+
 
 }
