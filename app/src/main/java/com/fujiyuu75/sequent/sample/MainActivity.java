@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.fujiyuu75.sequent.Direction;
 import com.fujiyuu75.sequent.Sequent;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.layout);
-        Sequent.origin(layout).start();
+        Sequent.origin(layout).flow(Direction.BACKWARD).start();
 
         Log.d(TAG, String.format("%s %s %s %s", "layout", layout.getClass().getName(), "id", layout.getId()));
     }

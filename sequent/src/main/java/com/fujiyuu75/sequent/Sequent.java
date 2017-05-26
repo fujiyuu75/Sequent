@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class Sequent {
     private ViewGroup vg;
     private final int startOffset;
     private final int duration;
+    private final Direction direction;
 
     public static class Builder {
         private static final int DEFAULT_OFFSET = 50;
@@ -26,6 +28,7 @@ public class Sequent {
         private ViewGroup vg;
         private int startOffset = DEFAULT_OFFSET;
         private int duration = DEFAULT_DURATION;
+        private Direction direction = Direction.FORWARD;
 
         Builder(ViewGroup vg) {
             this.vg = vg;
@@ -38,6 +41,11 @@ public class Sequent {
 
         public Builder duration(int duration) {
             this.duration = duration;
+            return this;
+        }
+
+        public Builder flow(Direction direction) {
+            this.direction = direction;
             return this;
         }
 
@@ -55,12 +63,14 @@ public class Sequent {
         this.vg = builder.vg;
         this.startOffset = builder.startOffset;
         this.duration = builder.duration;
+        this.direction = builder.direction;
 
         fetchChildLayouts(vg);
+        arrangeLayouts(viewList);
         setAnimation();
     }
 
-    protected void fetchChildLayouts(ViewGroup viewGroup) {
+    private void fetchChildLayouts(ViewGroup viewGroup) {
         int count = viewGroup.getChildCount();
         Log.d(TAG, String.format("%s %s", "count", String.valueOf(count)));
 
@@ -78,10 +88,19 @@ public class Sequent {
         }
     }
 
-    protected void setAnimation() {
+    private List<View> arrangeLayouts(List<View> viewList) {
+        switch (direction) {
+            case BACKWARD:
+                Collections.reverse(viewList);
+                break;
+        }
+        return viewList;
+    }
+
+    private void setAnimation() {
         int count = viewList.size();
         Log.d(TAG, String.format("%s %s", "viewList.size()", viewList.size()));
-        for (int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             AlphaAnimation anim = new AlphaAnimation(0, 1);
             anim.setStartOffset(i * startOffset);
             anim.setDuration(duration);
