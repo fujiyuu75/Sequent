@@ -3,6 +3,7 @@ package com.fujiyuu75.sequent;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,27 +110,8 @@ public class Sequent {
         for (int i = 0; i < count; i++) {
             final View view = viewList.get(i);
 
-            ObjectAnimator ob = ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
-            ob.setDuration(1).setStartDelay(i * 500);
-            ob.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator anim) {
-                    view.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator anim) {}
-
-                @Override
-                public void onAnimationEnd(Animator anim) {
-                }
-
-                @Override
-                public void onAnimationCancel(Animator anim) {}
-            });
-
             List<Animator> animatorList = new ArrayList<>();
-            animatorList.add(ob);
+            animatorList.add(getStartObjectAnimator(i, view));
             animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_X, 0.0f, 1.0f));
             animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.0f, 1.0f));
             animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
@@ -138,7 +120,7 @@ public class Sequent {
             AnimatorSet set = new AnimatorSet();
             set.playTogether(animatorList);
             set.setDuration(duration);
-            set.setStartDelay(i * 500);
+            set.setStartDelay(i * startOffset);
             set.setInterpolator(new OvershootInterpolator());
 //            set.addListener(new Animator.AnimatorListener() {
 //                @Override
@@ -189,6 +171,29 @@ public class Sequent {
 //            Log.d(TAG, String.format("%s %s", i * startOffset, i * duration));
 //            viewList.get(i).setAnimation(anim);
         }
+    }
+
+    @NonNull
+    private ObjectAnimator getStartObjectAnimator(int i, final View view) {
+        ObjectAnimator ob = ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
+        ob.setDuration(1).setStartDelay(i * startOffset);
+        ob.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator anim) {
+                view.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator anim) {}
+
+            @Override
+            public void onAnimationEnd(Animator anim) {
+            }
+
+            @Override
+            public void onAnimationCancel(Animator anim) {}
+        });
+        return ob;
     }
 
 }
