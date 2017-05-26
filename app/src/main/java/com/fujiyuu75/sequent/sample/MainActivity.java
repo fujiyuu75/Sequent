@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.layout);
-        Sequent.origin(layout).start();
+        Sequent.origin(layout).anim(this, R.anim.popup).start();
 
         Log.d(TAG, String.format("%s %s %s %s", "layout", layout.getClass().getName(), "id", layout.getId()));
     }

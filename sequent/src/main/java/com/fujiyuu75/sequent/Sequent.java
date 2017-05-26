@@ -1,6 +1,7 @@
 package com.fujiyuu75.sequent;
 
 import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -81,6 +82,8 @@ public class Sequent {
         this.direction = builder.direction;
         this.context = builder.context;
         this.animId = builder.animId;
+
+        Log.d(TAG, String.format("%s %s", "animId", animId));
 
         fetchChildLayouts(vg);
         arrangeLayouts(viewList);
@@ -185,7 +188,9 @@ public class Sequent {
 //        animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
 //        animatorList.add(ObjectAnimator.ofFloat(view, "pivotY", 0.5f));
 
-        animatorList.add(ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 ));
+//        animatorList.add(ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 ));
+
+        animatorList.add(getAnimator(context, animId, view));
         return animatorList;
     }
 
@@ -212,5 +217,9 @@ public class Sequent {
         return ob;
     }
 
-
+    private Animator getAnimator(Context context, int animId, View view){
+        Animator anim = AnimatorInflater.loadAnimator(context, animId);
+        anim.setTarget(view);
+        return anim;
+    }
 }
