@@ -1,9 +1,10 @@
 package com.fujiyuu75.sequent;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,8 +23,8 @@ public class Sequent {
     private final Direction direction;
 
     public static class Builder {
-        private static final int DEFAULT_OFFSET = 50;
-        private static final int DEFAULT_DURATION = 300;
+        private static final int DEFAULT_OFFSET = 70;
+        private static final int DEFAULT_DURATION = 500;
 
         private ViewGroup vg;
         private int startOffset = DEFAULT_OFFSET;
@@ -81,6 +82,7 @@ public class Sequent {
                 fetchChildLayouts((ViewGroup) view);
             } else {
                 Log.d(TAG, String.format("%s %s", "find", "view"));
+                view.setVisibility(View.GONE);
                 viewList.add(view);
 //                setAnimation(view);
             }
@@ -101,11 +103,37 @@ public class Sequent {
         int count = viewList.size();
         Log.d(TAG, String.format("%s %s", "viewList.size()", viewList.size()));
         for (int i = 0; i < count; i++) {
-            AlphaAnimation anim = new AlphaAnimation(0, 1);
-            anim.setStartOffset(i * startOffset);
-            anim.setDuration(duration);
-            Log.d(TAG, String.format("%s %s", i * startOffset, i * duration));
-            viewList.get(i).setAnimation(anim);
+            final View view = viewList.get(i);
+
+            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
+
+            objectAnimator.setDuration(duration);
+            objectAnimator.setStartDelay(i * startOffset);
+            objectAnimator.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator anim) {
+                    view.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator anim) {}
+
+                @Override
+                public void onAnimationEnd(Animator anim) {
+                }
+
+                @Override
+                public void onAnimationCancel(Animator anim) {}
+            });
+            objectAnimator.start();
+
+            Log.d(TAG, String.format("%s %s", i * startOffset, duration));
+
+//            AlphaAnimation anim = new AlphaAnimation(0, 1);
+//            anim.setStartOffset(i * startOffset);
+//            anim.setDuration(duration);
+//            Log.d(TAG, String.format("%s %s", i * startOffset, i * duration));
+//            viewList.get(i).setAnimation(anim);
         }
     }
 }
