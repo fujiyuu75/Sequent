@@ -46,4 +46,13 @@
         android:text="@string/tutorial_text3"
         android:textColor="@color/app_white" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
+        android:text="@string/tutorial_text4"
+        android:textColor="@color/app_white" />
+
 </LinearLayout>
