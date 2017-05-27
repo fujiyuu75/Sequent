@@ -8,7 +8,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -130,7 +129,6 @@ public class Sequent {
             set.playTogether(animatorList);
             set.setDuration(duration);
             set.setStartDelay(i * startOffset);
-            set.setInterpolator(new OvershootInterpolator());
             set.start();
         }
     }
