@@ -94,7 +94,7 @@ public class Sequent {
                 fetchChildLayouts((ViewGroup) view);
             } else {
                 if (view.getVisibility() == View.VISIBLE) {
-                    view.setVisibility(View.GONE);
+                    view.setVisibility(View.INVISIBLE);
                     viewList.add(view);
                 }
             }
