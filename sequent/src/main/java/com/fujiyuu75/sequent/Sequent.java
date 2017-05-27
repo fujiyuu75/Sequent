@@ -101,7 +101,7 @@ public class Sequent {
                 fetchChildLayouts((ViewGroup) view);
             } else {
                 Log.d(TAG, String.format("%s %s", "find", "view"));
-                if(view.getVisibility() == View.VISIBLE){
+                if (view.getVisibility() == View.VISIBLE) {
                     view.setVisibility(View.GONE);
                     viewList.add(view);
                 }
@@ -127,7 +127,14 @@ public class Sequent {
             final View view = viewList.get(i);
             final int offset = i * startOffset;
 
-            List<Animator> animatorList = getAnimators(offset, view);
+            List<Animator> animatorList = new ArrayList<>();
+            animatorList.add(getStartObjectAnimator(offset, view));
+
+            if (animId != 0) {
+                animatorList.add(getResAnimator(context, animId, view));
+            } else {
+                animatorList.add(getAlphaAnimator(offset, view));
+            }
 
             AnimatorSet set = new AnimatorSet();
             set.playTogether(animatorList);
@@ -180,23 +187,8 @@ public class Sequent {
     }
 
     @NonNull
-    private List<Animator> getAnimators(int offset, View view) {
-        List<Animator> animatorList = new ArrayList<>();
-        animatorList.add(getStartObjectAnimator(offset, view));
-//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_X, 0.0f, 1.0f));
-//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.0f, 1.0f));
-//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
-//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotY", 0.5f));
-
-//        animatorList.add(ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 ));
-
-        animatorList.add(getAnimator(context, animId, view));
-        return animatorList;
-    }
-
-    @NonNull
     private ObjectAnimator getStartObjectAnimator(int offset, final View view) {
-        ObjectAnimator ob = ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
+        ObjectAnimator ob = ObjectAnimator.ofFloat(view, View.ALPHA, 0, 1);
         ob.setDuration(1).setStartDelay(offset);
         ob.addListener(new Animator.AnimatorListener() {
             @Override
@@ -205,19 +197,31 @@ public class Sequent {
             }
 
             @Override
-            public void onAnimationRepeat(Animator anim) {}
+            public void onAnimationRepeat(Animator anim) {
+            }
 
             @Override
             public void onAnimationEnd(Animator anim) {
             }
 
             @Override
-            public void onAnimationCancel(Animator anim) {}
+            public void onAnimationCancel(Animator anim) {
+            }
         });
         return ob;
     }
 
-    private Animator getAnimator(Context context, int animId, View view){
+    @NonNull
+    private Animator getAlphaAnimator(int offset, View view) {
+//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_X, 0.0f, 1.0f));
+//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.0f, 1.0f));
+//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
+//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotY", 0.5f));
+
+        return ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
+    }
+
+    private Animator getResAnimator(Context context, int animId, View view) {
         Animator anim = AnimatorInflater.loadAnimator(context, animId);
         anim.setTarget(view);
         return anim;
