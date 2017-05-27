@@ -6,7 +6,6 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
@@ -71,7 +70,6 @@ public class Sequent {
     }
 
     public static Builder origin(ViewGroup vg) {
-        Log.d(TAG, String.format("%s %s", "origin", "in"));
         return new Builder(vg);
     }
 
@@ -83,8 +81,6 @@ public class Sequent {
         this.context = builder.context;
         this.animId = builder.animId;
 
-        Log.d(TAG, String.format("%s %s", "animId", animId));
-
         fetchChildLayouts(vg);
         arrangeLayouts(viewList);
         setAnimation();
@@ -92,22 +88,17 @@ public class Sequent {
 
     private void fetchChildLayouts(ViewGroup viewGroup) {
         int count = viewGroup.getChildCount();
-        Log.d(TAG, String.format("%s %s", "count", String.valueOf(count)));
 
         for (int i = 0; i < count; i++) {
             View view = viewGroup.getChildAt(i);
             if (view instanceof ViewGroup) {
-                Log.d(TAG, String.format("%s %s", "find", "viewGroup"));
                 fetchChildLayouts((ViewGroup) view);
             } else {
-                Log.d(TAG, String.format("%s %s", "find", "view"));
                 if (view.getVisibility() == View.VISIBLE) {
                     view.setVisibility(View.GONE);
                     viewList.add(view);
                 }
-//                setAnimation(view);
             }
-            Log.d(TAG, String.format("%s %s %s %s", "child", viewGroup.getClass().getName(), "id", String.valueOf(viewGroup.getId())));
         }
     }
 
@@ -122,7 +113,6 @@ public class Sequent {
 
     private void setAnimation() {
         int count = viewList.size();
-        Log.d(TAG, String.format("%s %s", "viewList.size()", viewList.size()));
         for (int i = 0; i < count; i++) {
             final View view = viewList.get(i);
             final int offset = i * startOffset;
@@ -133,7 +123,7 @@ public class Sequent {
             if (animId != 0) {
                 animatorList.add(getResAnimator(context, animId, view));
             } else {
-                animatorList.add(getAlphaAnimator(offset, view));
+                animatorList.add(ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 ));
             }
 
             AnimatorSet set = new AnimatorSet();
@@ -141,48 +131,7 @@ public class Sequent {
             set.setDuration(duration);
             set.setStartDelay(i * startOffset);
             set.setInterpolator(new OvershootInterpolator());
-//            set.addListener(new Animator.AnimatorListener() {
-//                @Override
-//                public void onAnimationStart(Animator anim) {
-//                    view.setVisibility(View.VISIBLE);
-//                    Log.d(TAG, String.format("%s %s", "VISIBLE", "start"));
-//                }
-//
-//                @Override
-//                public void onAnimationRepeat(Animator anim) {}
-//
-//                @Override
-//                public void onAnimationEnd(Animator anim) {
-//                }
-//
-//                @Override
-//                public void onAnimationCancel(Animator anim) {}
-//            });
             set.start();
-
-
-//            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
-//            objectAnimator.setDuration(duration);
-//            objectAnimator.setStartDelay(i * startOffset);
-//            objectAnimator.addListener(new Animator.AnimatorListener() {
-//                @Override
-//                public void onAnimationStart(Animator anim) {
-//                    view.setVisibility(View.VISIBLE);
-//                }
-//
-//                @Override
-//                public void onAnimationRepeat(Animator anim) {}
-//
-//                @Override
-//                public void onAnimationEnd(Animator anim) {
-//                }
-//
-//                @Override
-//                public void onAnimationCancel(Animator anim) {}
-//            });
-//            objectAnimator.start();
-
-            Log.d(TAG, String.format("%s %s", i * startOffset, duration));
         }
     }
 
@@ -209,16 +158,6 @@ public class Sequent {
             }
         });
         return ob;
-    }
-
-    @NonNull
-    private Animator getAlphaAnimator(int offset, View view) {
-//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_X, 0.0f, 1.0f));
-//        animatorList.add(ObjectAnimator.ofFloat(view, View.SCALE_Y, 0.0f, 1.0f));
-//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotX", 0.5f));
-//        animatorList.add(ObjectAnimator.ofFloat(view, "pivotY", 0.5f));
-
-        return ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 );
     }
 
     private Animator getResAnimator(Context context, int animId, View view) {
