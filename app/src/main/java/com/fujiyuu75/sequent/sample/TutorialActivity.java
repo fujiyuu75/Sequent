@@ -1,12 +1,10 @@
 package com.fujiyuu75.sequent.sample;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,18 +30,9 @@ public class TutorialActivity extends AppCompatActivity {
         navi2 = (LinearLayout) findViewById(R.id.navi2);
         navi3 = (LinearLayout) findViewById(R.id.navi3);
         navi4 = (LinearLayout) findViewById(R.id.navi4);
-        nextBtn = (Button) findViewById(R.id.nextButton);
 
         viewPager.setAdapter(new TutorialViewPagerAdapter(
                 getSupportFragmentManager()));
-
-        // 最初のページ用
-        nextBtn.setText("Tap to continue");
-        nextBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                viewPager.setCurrentItem(1);
-            }
-        });
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -87,27 +76,6 @@ public class TutorialActivity extends AppCompatActivity {
                             navi3.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             navi4.setBackgroundResource(R.drawable.tutorial_swipe_navi_selected);
                             break;
-                    }
-
-                    if (page != 3) {
-                        nextBtn.setText("Tap to continue");
-                        nextBtn.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                viewPager.setCurrentItem(page + 1);
-                            }
-                        });
-                    } else {
-                        nextBtn.setText("Tap to start！");
-                        nextBtn.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                // Intent login page
-                                Intent i = new Intent(getApplicationContext(),
-                                        MainActivity.class);
-                                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                                startActivity(i);
-                                finish();
-                            }
-                        });
                     }
                 }
             }

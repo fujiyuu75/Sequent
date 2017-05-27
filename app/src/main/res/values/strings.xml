@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Sequent-Demo</string>
-    <string name="tutorial_title">tutorial_title</string>
-    <string name="tutorial_text">tutorial_text</string>
+    <string name="tutorial_title">Sequent</string>
+    <string name="tutorial_text">This is Sequent Demo App.</string>
+    <string name="tutorial_text2">Sequent is so simple library.</string>
+    <string name="tutorial_text3">you just add one liner in your code.</string>
     <string name="tutorial_title_1">tutorial_title_1</string>
     <string name="tutorial_text_1">tutorial_text_1</string>
     <string name="tutorial_title_2">tutorial_title_2</string>

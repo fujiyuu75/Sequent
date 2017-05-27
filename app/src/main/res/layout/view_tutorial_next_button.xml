@@ -6,15 +6,6 @@
               android:gravity="center_horizontal"
               android:orientation="vertical">
 
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/tutorial_next_button"
-        android:textColor="@color/app_white"
-        android:textStyle="bold"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
