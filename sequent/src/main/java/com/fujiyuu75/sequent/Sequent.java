@@ -28,7 +28,7 @@ public class Sequent {
     private final int animId;
 
     public static class Builder {
-        private static final int DEFAULT_OFFSET = 70;
+        private static final int DEFAULT_OFFSET = 100;
         private static final int DEFAULT_DURATION = 500;
 
         private ViewGroup vg;
