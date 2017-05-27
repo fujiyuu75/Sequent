@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Sequent-Demo</string>
+    <string name="tutorial_title">tutorial_title</string>
+    <string name="tutorial_text">tutorial_text</string>
+    <string name="tutorial_title_1">tutorial_title_1</string>
+    <string name="tutorial_text_1">tutorial_text_1</string>
+    <string name="tutorial_title_2">tutorial_title_2</string>
+    <string name="tutorial_text_2">tutorial_text_2</string>
+    <string name="tutorial_title_3">tutorial_title_3</string>
+    <string name="tutorial_text_3">tutorial_text_3</string>
 </resources>
