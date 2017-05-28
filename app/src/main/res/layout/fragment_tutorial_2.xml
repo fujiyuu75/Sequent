@@ -1,9 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:paddingLeft="10dp"
-              android:paddingRight="10dp">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_white"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <LinearLayout
         android:id="@+id/image_layout"
@@ -55,10 +57,10 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="@dimen/common_line_spacing_extra"
             android:text="@string/tutorial_title_2"
-            android:textColor="@color/app_white"
             android:textSize="@dimen/common_text_size_large"
             android:textStyle="bold"
-            android:typeface="monospace"/>
+            android:typeface="monospace"
+            android:textColor="@color/color_black"/>
 
         <TextView
             android:id="@+id/tutorial_text"
@@ -68,6 +70,6 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
             android:text="@string/tutorial_text_2"
-            android:textColor="@color/app_white"/>
+            android:textColor="@color/app_black"/>
     </LinearLayout>
 </LinearLayout>
