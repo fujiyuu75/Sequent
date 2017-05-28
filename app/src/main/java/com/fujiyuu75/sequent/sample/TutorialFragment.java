@@ -12,6 +12,8 @@ import com.fujiyuu75.sequent.Sequent;
 
 public class TutorialFragment extends Fragment {
 
+    private LinearLayout layout;
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
@@ -24,7 +26,15 @@ public class TutorialFragment extends Fragment {
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 
-        LinearLayout layout = (LinearLayout)v.findViewById(R.id.layout);
-        Sequent.origin(layout).start();
+        layout = (LinearLayout)v.findViewById(R.id.layout);
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if (isVisibleToUser && layout != null) {
+            Sequent.origin(layout).start();
+        }
     }
 }

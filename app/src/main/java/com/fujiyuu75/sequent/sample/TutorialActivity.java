@@ -34,6 +34,8 @@ public class TutorialActivity extends AppCompatActivity {
         viewPager.setAdapter(new TutorialViewPagerAdapter(
                 getSupportFragmentManager()));
 
+        viewPager.setOffscreenPageLimit(0);
+
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -42,7 +44,6 @@ public class TutorialActivity extends AppCompatActivity {
             @Override
             public void onPageScrolled(int position, float positionOffset,
                                        int positionOffsetPixels) {
-
             }
 
             @Override

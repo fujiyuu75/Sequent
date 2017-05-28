@@ -1,11 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/layout"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp" >
+    android:paddingRight="10dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         android:textColor="@color/app_white"
         android:textSize="@dimen/common_text_size_logo"
         android:textStyle="bold"
-        android:typeface="monospace" />
+        android:typeface="monospace"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
         android:gravity="center_horizontal"
         android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
         android:text="@string/tutorial_text"
-        android:textColor="@color/app_white" />
+        android:textColor="@color/app_white"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -35,7 +36,7 @@
         android:gravity="center_horizontal"
         android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
         android:text="@string/tutorial_text2"
-        android:textColor="@color/app_white" />
+        android:textColor="@color/app_white"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -44,7 +45,7 @@
         android:gravity="center_horizontal"
         android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
         android:text="@string/tutorial_text3"
-        android:textColor="@color/app_white" />
+        android:textColor="@color/app_white"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -53,6 +54,6 @@
         android:gravity="center_horizontal"
         android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
         android:text="@string/tutorial_text4"
-        android:textColor="@color/app_white" />
+        android:textColor="@color/app_white"/>
 
 </LinearLayout>
