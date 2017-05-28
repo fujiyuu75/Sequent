@@ -23,7 +23,7 @@
             android:layout_gravity="right"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/message1"/>
+            android:src="@drawable/t1_1"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
             android:layout_gravity="left"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/message2"/>
+            android:src="@drawable/t1_2"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_gravity="right"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/message3"/>
+            android:src="@drawable/t1_3"/>
     </LinearLayout>
 
     <LinearLayout
