@@ -6,13 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.fujiyuu75.sequent.Sequent;
 
 public class TutorialFragment2 extends Fragment {
 
-    private FrameLayout layout;
+    private LinearLayout layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -26,7 +26,7 @@ public class TutorialFragment2 extends Fragment {
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 
-        layout = (FrameLayout)v.findViewById(R.id.image_layout);
+        layout = (LinearLayout)v.findViewById(R.id.image_layout);
     }
 
     @Override
