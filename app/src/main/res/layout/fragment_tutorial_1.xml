@@ -20,26 +20,26 @@
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="right"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/ic_chat_right"/>
+            android:src="@drawable/message1"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="left"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/ic_chat_right"/>
+            android:src="@drawable/message2"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="right"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/ic_chat_right"/>
+            android:src="@drawable/message3"/>
     </LinearLayout>
 
     <LinearLayout
