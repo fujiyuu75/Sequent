@@ -1,5 +1,7 @@
 # Sequent
 
+<img src=https://github.com/fujiyuu75/sequent/blob/res/demo.gif width=400px>
+
 Sequent is a library that starts animation continuously for multiple views at regular intervals.
 
 ```
