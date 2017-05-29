@@ -26,8 +26,8 @@
             android:id="@+id/navi2"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/tutorial_swipe_navi"
             android:orientation="horizontal"/>
 
@@ -35,8 +35,8 @@
             android:id="@+id/navi3"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/tutorial_swipe_navi"
             android:orientation="horizontal"/>
 
