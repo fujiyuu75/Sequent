@@ -14,15 +14,7 @@ Sequent.origin(viewGroup).start()
 ## Download
 
 ```
-repositories {
-    maven {
-        url "http://dl.bintray.com/fujiyuu75/sequent"
-    }
-}
-
-dependencies {
-    compile 'com.fujiyuu75:sequent:0.1.0'
-}
+Coming Soon..
 ```
 
 ## Bugs and Feedback
