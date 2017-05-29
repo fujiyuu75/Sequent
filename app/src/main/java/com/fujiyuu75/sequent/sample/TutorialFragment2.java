@@ -34,7 +34,7 @@ public class TutorialFragment2 extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
 
         if (isVisibleToUser && layout != null) {
-            Sequent.origin(layout).anim(getActivity(), R.anim.fraction).start();
+            Sequent.origin(layout).anim(getActivity(), R.anim.fadeup).start();
         }
     }
 }
