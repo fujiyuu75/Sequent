@@ -13,14 +13,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by y_fujikawa on 2017/05/24.
- */
 public class Sequent {
-    private static final String TAG = "Sequent";
-
     private List<View> viewList = new ArrayList<>();
-    private ViewGroup vg;
     private final int startOffset;
     private final int duration;
     private final Direction direction;
@@ -73,13 +67,13 @@ public class Sequent {
     }
 
     private Sequent(Builder builder) {
-        this.vg = builder.vg;
         this.startOffset = builder.startOffset;
         this.duration = builder.duration;
         this.direction = builder.direction;
         this.context = builder.context;
         this.animId = builder.animId;
 
+        ViewGroup vg = builder.vg;
         fetchChildLayouts(vg);
         arrangeLayouts(viewList);
         setAnimation();
@@ -122,7 +116,7 @@ public class Sequent {
             if (animId != 0) {
                 animatorList.add(getResAnimator(context, animId, view));
             } else {
-                animatorList.add(ObjectAnimator.ofFloat( view, View.ALPHA, 0, 1 ));
+                animatorList.add(ObjectAnimator.ofFloat(view, View.ALPHA, 0, 1));
             }
 
             AnimatorSet set = new AnimatorSet();
