@@ -1,1 +1,1 @@
-include ':app', ':sequent'
+include ':sample', ':sequent'
