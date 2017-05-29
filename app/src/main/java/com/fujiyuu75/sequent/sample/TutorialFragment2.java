@@ -26,7 +26,7 @@ public class TutorialFragment2 extends Fragment {
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 
-        layout = (LinearLayout)v.findViewById(R.id.image_layout);
+        layout = (LinearLayout) v.findViewById(R.id.image_layout);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class TutorialFragment2 extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
 
         if (isVisibleToUser && layout != null) {
-            Sequent.origin(layout).anim(getActivity(), R.anim.fraction).start();
+            Sequent.origin(layout).anim(getActivity(), R.anim.fadeup).start();
         }
     }
 }

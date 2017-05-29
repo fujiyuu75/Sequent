@@ -4,13 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class TutorialViewPagerAdapter extends FragmentPagerAdapter {
+class TutorialViewPagerAdapter extends FragmentPagerAdapter {
 
-    public TutorialViewPagerAdapter(FragmentManager fm) {
+    TutorialViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
-    private String[] pageTitle = {"ホーム", "タイムライン", "アクティビティ"};
+    private String[] pageTitle = {"page1", "page2", "page3"};
 
     @Override
     public Fragment getItem(int i) {
