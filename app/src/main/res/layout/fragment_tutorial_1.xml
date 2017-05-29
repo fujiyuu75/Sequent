@@ -2,9 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:background="@color/app_white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/image_layout"
@@ -12,33 +11,59 @@
         android:layout_height="0dp"
         android:layout_gravity="top"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingBottom="24dp"
-        android:paddingTop="24dp">
+        android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/ic_chat_right"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/app_blue"
+            android:gravity="center">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/ic_chat_right"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/t1_1"/>
+        </FrameLayout>
 
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:src="@drawable/ic_chat_right"/>
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:src="@drawable/t1_2"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:src="@drawable/t1_3"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:src="@drawable/t1_4"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:src="@drawable/t1_5"/>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -56,7 +81,7 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="@dimen/common_line_spacing_extra"
             android:text="@string/tutorial_title_1"
-            android:textColor="@color/app_white"
+            android:textColor="@color/color_black"
             android:textSize="@dimen/common_text_size_large"
             android:textStyle="bold"
             android:typeface="monospace"/>
@@ -69,6 +94,6 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="@dimen/common_line_spacing_extra_large"
             android:text="@string/tutorial_text_1"
-            android:textColor="@color/app_white"/>
+            android:textColor="@color/app_black"/>
     </LinearLayout>
 </LinearLayout>
