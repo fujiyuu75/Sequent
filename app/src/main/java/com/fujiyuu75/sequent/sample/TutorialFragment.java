@@ -26,7 +26,7 @@ public class TutorialFragment extends Fragment {
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 
-        layout = (LinearLayout)v.findViewById(R.id.layout);
+        layout = (LinearLayout) v.findViewById(R.id.layout);
     }
 
     @Override

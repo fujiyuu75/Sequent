@@ -1,24 +1,17 @@
 package com.fujiyuu75.sequent.sample;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class TutorialActivity extends AppCompatActivity {
 
-    private final static String TAG = TutorialActivity.class.getSimpleName();
     private ViewPager viewPager;
     private LinearLayout navi1;
     private LinearLayout navi2;
     private LinearLayout navi3;
     private LinearLayout navi4;
-    private Button nextBtn;
-    private ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +29,7 @@ public class TutorialActivity extends AppCompatActivity {
 
         viewPager.setOffscreenPageLimit(0);
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
             }
@@ -50,8 +43,6 @@ public class TutorialActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
                 if (state == ViewPager.SCROLL_STATE_SETTLING) {
                     final int page = viewPager.getCurrentItem();
-                    // Button nextBtn = (Button)
-                    // findViewById(R.id.tutorial_next_button);
                     switch (page) {
                         case 0:
                             navi1.setBackgroundResource(R.drawable.tutorial_swipe_navi_selected);
@@ -81,15 +72,5 @@ public class TutorialActivity extends AppCompatActivity {
                 }
             }
         });
-
-    }
-
-    @SuppressWarnings("deprecation")
-    public Drawable getDrawableResource(int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return getDrawable(id);
-        } else {
-            return getResources().getDrawable(id);
-        }
     }
 }
