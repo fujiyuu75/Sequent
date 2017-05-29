@@ -59,4 +59,4 @@ fabric.properties
 /captures
 .externalNativeBuild
 .idea
-
+/resources

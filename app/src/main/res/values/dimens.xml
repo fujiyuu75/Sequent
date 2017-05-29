@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="common_text_size_micro">12.0sp</dimen>
+    <dimen name="common_text_size_small">14.0sp</dimen>
+    <dimen name="common_text_size_medium">18.0sp</dimen>
+    <dimen name="common_text_size_large">22.0sp</dimen>
+    <dimen name="common_text_size_big">24.0sp</dimen>
+    <dimen name="common_text_size_logo">36.0sp</dimen>
+    <dimen name="common_line_spacing_extra">4.0sp</dimen>
+    <dimen name="common_line_spacing_extra_large">8.0sp</dimen>
+    <dimen name="common_spacing_extra_micro">4.0dp</dimen>
+    <dimen name="common_spacing_extra_small">6.0dp</dimen>
+    <dimen name="common_spacing_extra">8.0dp</dimen>
+    <dimen name="common_spacing_extra_medium">12.0dp</dimen>
+    <dimen name="common_spacing_extra_large">16.0dp</dimen>
+    <dimen name="common_spacing_extra_big">24.0dp</dimen>
+</resources>

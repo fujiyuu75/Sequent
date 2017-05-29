@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color_black">#000000</color>
+    <color name="color_white">#FFF</color>
+    <color name="app_black">#383838</color>
+    <color name="app_gray">#CCC</color>
+    <color name="app_blue">#5AAFEE</color>
+    <color name="app_orange">#FCB64B</color>
+    <color name="app_white">#FFF</color>
+    <color name="app_transparent">#00000000</color>
+    <color name="app_transparent_black">#99000000</color>
 </resources>

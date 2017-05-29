@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Sequent-Demo</string>
+    <string name="tutorial_title">Sequent</string>
+    <string name="tutorial_text">This is Sequent Demo App.</string>
+    <string name="tutorial_text2">Sequent is so simple library.</string>
+    <string name="tutorial_text3">you just add one liner in your code.</string>
+    <string name="tutorial_text4">Please see the demo!!</string>
+    <string name="tutorial_title_1">Offset/Duration Setting</string>
+    <string name="tutorial_text_1">You could change offset and duration time.</string>
+    <string name="tutorial_title_2">Custom Animation</string>
+    <string name="tutorial_text_2">It is easy to customize the animation.</string>
+    <string name="tutorial_title_3">Thank you for seeing!!</string>
+    <string name="tutorial_text_3">Sequent welcomes contributions.</string>
 </resources>
