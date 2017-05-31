@@ -5,10 +5,8 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -127,7 +125,6 @@ public class Sequent {
         }
     }
 
-    @NonNull
     private ObjectAnimator getStartObjectAnimator(int offset, final View view) {
         ObjectAnimator ob = ObjectAnimator.ofFloat(view, View.ALPHA, 0, 1);
         ob.setDuration(1).setStartDelay(offset);

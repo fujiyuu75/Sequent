@@ -60,3 +60,5 @@ fabric.properties
 .externalNativeBuild
 .idea
 /resources
+/gradle.properties
+/local.properties
