@@ -61,3 +61,4 @@ fabric.properties
 .idea
 /resources
 /gradle.properties
+/local.properties
