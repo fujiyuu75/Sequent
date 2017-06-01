@@ -7,12 +7,5 @@ package com.fujiyuu75.sequent;
 public enum Direction {
     FORWARD,
     BACKWARD,
-    TOP_LEFT,
-    TOP,
-    TOP_RIGHT,
-    LEFT,
-    RIGHT,
-    BOTTOM_LEFT,
-    BOTTOM,
-    BOTTOM_RIGHT
+    RANDOM
 }
