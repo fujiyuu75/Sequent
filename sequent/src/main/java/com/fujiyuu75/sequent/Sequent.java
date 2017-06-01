@@ -7,6 +7,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Sequent {
     private List<View> viewList = new ArrayList<>();
     private final int startOffset;
     private final int duration;
+    private final int delay;
     private final Direction direction;
     private final Context context;
     private final int animId;
@@ -22,10 +24,12 @@ public class Sequent {
     public static class Builder {
         private static final int DEFAULT_OFFSET = 100;
         private static final int DEFAULT_DURATION = 500;
+        private static final int DEFAULT_DELAY = 0;
 
         private ViewGroup vg;
         private int startOffset = DEFAULT_OFFSET;
         private int duration = DEFAULT_DURATION;
+        private int delay = DEFAULT_DURATION;
         private Direction direction = Direction.FORWARD;
         private Context context;
         private int animId;
@@ -41,6 +45,11 @@ public class Sequent {
 
         public Builder duration(int duration) {
             this.duration = duration;
+            return this;
+        }
+
+        public Builder delay(int delay) {
+            this.delay = delay;
             return this;
         }
 
@@ -67,6 +76,7 @@ public class Sequent {
     private Sequent(Builder builder) {
         this.startOffset = builder.startOffset;
         this.duration = builder.duration;
+        this.delay = builder.delay;
         this.direction = builder.direction;
         this.context = builder.context;
         this.animId = builder.animId;
@@ -98,6 +108,9 @@ public class Sequent {
             case BACKWARD:
                 Collections.reverse(viewList);
                 break;
+            case RANDOM:
+                Collections.shuffle(viewList);
+                break;
         }
         return viewList;
     }
@@ -120,7 +133,13 @@ public class Sequent {
             AnimatorSet set = new AnimatorSet();
             set.playTogether(animatorList);
             set.setDuration(duration);
-            set.setStartDelay(i * startOffset);
+            if (delay == 0) {
+                set.setStartDelay(i * startOffset);
+            } else if (i == 0) {
+                set.setStartDelay(delay);
+            } else {
+                set.setStartDelay((i * startOffset) + delay);
+            }
             set.start();
         }
     }
