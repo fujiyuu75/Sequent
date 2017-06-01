@@ -98,6 +98,9 @@ public class Sequent {
             case BACKWARD:
                 Collections.reverse(viewList);
                 break;
+            case RANDOM:
+                Collections.shuffle(viewList);
+                break;
         }
         return viewList;
     }
