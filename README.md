@@ -5,10 +5,12 @@
 Sequent is a library that starts animation continuously for multiple views at regular intervals.
 
 ```
-LinearLayout viewGroup = (LinearLayout) v.findViewById(R.id.layout);
+# Views inheriting ViewGroup are available.
+# e.g. LinearLayout, RelativiLayout, framelayout, etc
+LinearLayout layout = (LinearLayout) v.findViewById(R.id.layout);
 
 # Just write a line. Default animation is Fadein.
-Sequent.origin(viewGroup).start()
+Sequent.origin(layout).start()
 ```
 
 You can change the animation settings.
