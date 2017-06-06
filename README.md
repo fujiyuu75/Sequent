@@ -30,7 +30,7 @@ Sequent
 
 ```
 dependencies {
-  compile 'com.fujiyuu75:sequent:0.1.2'
+  compile 'com.fujiyuu75:sequent:0.1.3'
 }
 ```
 
