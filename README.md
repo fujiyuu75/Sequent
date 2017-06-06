@@ -22,7 +22,7 @@ Sequent
    .delay(int) // option. StartOffSet time.
    .offset(int) // option. Interval time.
    .flow(Direction) // option. Flow of animations in (FORWARD/BACKWARD/RANDOM). 
-   .anim(int) // option. ObjectAnimator xml resource.
+   .anim(Context, int) // option. ObjectAnimator xml resource.
    .start()
 ```
 
