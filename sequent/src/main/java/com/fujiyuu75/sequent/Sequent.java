@@ -5,6 +5,7 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -121,6 +122,8 @@ public class Sequent {
             final View view = viewList.get(i);
             final int offset = i * startOffset;
 
+            resetAnimation(view);
+
             List<Animator> animatorList = new ArrayList<>();
             animatorList.add(getStartObjectAnimator(offset, view));
 
@@ -142,6 +145,17 @@ public class Sequent {
             }
             set.start();
         }
+    }
+
+    private void resetAnimation(View view) {
+        ViewCompat.setAlpha(view, 1);
+        ViewCompat.setScaleX(view, 1);
+        ViewCompat.setScaleY(view, 1);
+        ViewCompat.setTranslationX(view, 0);
+        ViewCompat.setTranslationY(view, 0);
+        ViewCompat.setRotation(view, 0);
+        ViewCompat.setRotationY(view, 0);
+        ViewCompat.setRotationX(view, 0);
     }
 
     private ObjectAnimator getStartObjectAnimator(int offset, final View view) {
