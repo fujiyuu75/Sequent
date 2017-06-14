@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 
-public class TutorialActivity extends AppCompatActivity {
+public class SampleActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private LinearLayout navi1;
@@ -15,14 +15,14 @@ public class TutorialActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorial);
+        setContentView(R.layout.activity_sample);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         navi1 = (LinearLayout) findViewById(R.id.navi1);
         navi2 = (LinearLayout) findViewById(R.id.navi2);
         navi3 = (LinearLayout) findViewById(R.id.navi3);
 
-        viewPager.setAdapter(new TutorialViewPagerAdapter(
+        viewPager.setAdapter(new SampleViewPagerAdapter(
                 getSupportFragmentManager()));
 
         viewPager.setOffscreenPageLimit(0);

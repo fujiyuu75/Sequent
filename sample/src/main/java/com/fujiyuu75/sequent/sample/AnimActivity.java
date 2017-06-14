@@ -14,7 +14,7 @@ import com.fujiyuu75.sequent.Sequent;
 
 public class AnimActivity extends AppCompatActivity {
 
-    private final static String TAG = TutorialFragment.class.getSimpleName();
+    private final static String TAG = AnimActivity.class.getSimpleName();
     private LinearLayout layout;
     private Spinner spinner;
 
@@ -29,7 +29,7 @@ public class AnimActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), TutorialActivity.class));
+                startActivity(new Intent(getApplicationContext(), SampleActivity.class));
             }
         });
 
