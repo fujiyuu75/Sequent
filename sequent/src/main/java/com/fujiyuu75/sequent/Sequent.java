@@ -21,6 +21,7 @@ public class Sequent {
     private final Direction direction;
     private final Context context;
     private final int animId;
+    private final Animation anim;
 
     public static class Builder {
         private static final int DEFAULT_OFFSET = 100;
@@ -34,6 +35,7 @@ public class Sequent {
         private Direction direction = Direction.FORWARD;
         private Context context;
         private int animId;
+        private Animation anim;
 
         Builder(ViewGroup vg) {
             this.vg = vg;
@@ -65,6 +67,12 @@ public class Sequent {
             return this;
         }
 
+        public Builder anim(Context context, Animation anim) {
+            this.context = context;
+            this.anim = anim;
+            return this;
+        }
+
         public Sequent start() {
             return new Sequent(this);
         }
@@ -81,6 +89,7 @@ public class Sequent {
         this.direction = builder.direction;
         this.context = builder.context;
         this.animId = builder.animId;
+        this.anim = builder.anim;
 
         ViewGroup vg = builder.vg;
         fetchChildLayouts(vg);
@@ -129,6 +138,8 @@ public class Sequent {
 
             if (animId != 0) {
                 animatorList.add(getResAnimator(context, animId, view));
+            } else if (anim != null){
+                animatorList.add(getResAnimator(context, anim.getAnimId(), view));
             } else {
                 animatorList.add(ObjectAnimator.ofFloat(view, View.ALPHA, 0, 1));
             }
