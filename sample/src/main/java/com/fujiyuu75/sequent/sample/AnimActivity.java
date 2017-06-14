@@ -1,5 +1,6 @@
 package com.fujiyuu75.sequent.sample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,6 +25,13 @@ public class AnimActivity extends AppCompatActivity {
 
         layout = (LinearLayout) findViewById(R.id.layout);
         spinner = (Spinner) findViewById(R.id.spinner);
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TutorialActivity.class));
+            }
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
