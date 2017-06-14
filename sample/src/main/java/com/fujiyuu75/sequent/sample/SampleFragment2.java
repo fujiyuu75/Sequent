@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 
-public class TutorialFragment2 extends Fragment {
+public class SampleFragment2 extends Fragment {
 
     private LinearLayout layout;
 
@@ -19,7 +20,7 @@ public class TutorialFragment2 extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_tutorial_2, null);
+        return inflater.inflate(R.layout.fragment_sample_2, null);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class TutorialFragment2 extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
 
         if (isVisibleToUser && layout != null) {
-            Sequent.origin(layout).anim(getActivity(), R.anim.fadeup).start();
+            Sequent.origin(layout).anim(getActivity(), Animation.FADE_IN_UP).start();
         }
     }
 }
