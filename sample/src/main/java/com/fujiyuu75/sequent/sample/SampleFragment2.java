@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 
-public class TutorialFragment extends Fragment {
+public class SampleFragment2 extends Fragment {
 
     private LinearLayout layout;
 
@@ -20,14 +20,14 @@ public class TutorialFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_tutorial, null);
+        return inflater.inflate(R.layout.fragment_sample_2, null);
     }
 
     @Override
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 
-        layout = (LinearLayout) v.findViewById(R.id.layout);
+        layout = (LinearLayout) v.findViewById(R.id.image_layout);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class TutorialFragment extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
 
         if (isVisibleToUser && layout != null) {
-            Sequent.origin(layout).anim(getActivity(), Animation.BOUNCE_IN).start();
+            Sequent.origin(layout).anim(getActivity(), Animation.FADE_IN_UP).start();
         }
     }
 }

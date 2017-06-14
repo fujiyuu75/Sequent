@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 import com.fujiyuu75.sequent.Sequent;
 
-public class TutorialFragment1 extends Fragment {
+public class SampleFragment3 extends Fragment {
 
     private LinearLayout layout;
 
@@ -19,7 +19,7 @@ public class TutorialFragment1 extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_tutorial_1, null);
+        return inflater.inflate(R.layout.fragment_sample_3, null);
     }
 
     @Override

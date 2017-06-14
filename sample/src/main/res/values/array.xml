@@ -1,0 +1,10 @@
+<resources>
+    <string-array name="anims">
+        <item>bounceIn</item>
+        <item>fadeInDown</item>
+        <item>fadeInLeft</item>
+        <item>fadeInRight</item>
+        <item>fadeInUp</item>
+        <item>rotateIn</item>
+    </string-array>
+</resources>

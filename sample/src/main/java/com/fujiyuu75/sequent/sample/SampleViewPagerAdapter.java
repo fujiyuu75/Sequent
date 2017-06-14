@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-class TutorialViewPagerAdapter extends FragmentPagerAdapter {
+class SampleViewPagerAdapter extends FragmentPagerAdapter {
 
-    TutorialViewPagerAdapter(FragmentManager fm) {
+    SampleViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -16,21 +16,19 @@ class TutorialViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return new TutorialFragment();
+                return new SampleFragment1();
             case 1:
-                return new TutorialFragment1();
+                return new SampleFragment2();
             case 2:
-                return new TutorialFragment2();
-            case 3:
-                return new TutorialFragment3();
+                return new SampleFragment3();
             default:
-                return new TutorialFragment();
+                return new SampleFragment1();
         }
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Override
