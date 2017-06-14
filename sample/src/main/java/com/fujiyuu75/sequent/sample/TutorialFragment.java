@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.fujiyuu75.sequent.Animation;
 import com.fujiyuu75.sequent.Sequent;
 
 public class TutorialFragment extends Fragment {
@@ -34,7 +35,7 @@ public class TutorialFragment extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
 
         if (isVisibleToUser && layout != null) {
-            Sequent.origin(layout).start();
+            Sequent.origin(layout).anim(getActivity(), Animation.BOUNCE_IN).start();
         }
     }
 }
