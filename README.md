@@ -22,9 +22,13 @@ Sequent
    .delay(int) // option. StartOffSet time.
    .offset(int) // option. Interval time.
    .flow(Direction) // option. Flow of animations in (FORWARD/BACKWARD/RANDOM). 
-   .anim(Context, int) // option. ObjectAnimator xml resource.
+   .anim(Context, Animation) or .anim(Context, int) // option. implemented Animation or ObjectAnimator xml resource.
    .start()
 ```
+
+Please use the following implemented animation effects.
+
+```bounceIn``` ```fadeInDown``` ```fadeInLeft``` ```fadeInRight``` ```fadeInUp``` ```rotateIn```
 
 ## Download
 
