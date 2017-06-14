@@ -22,7 +22,7 @@
         <objectAnimator
             android:duration="500"
             android:propertyName="translationY"
-            android:valueFrom="150"
+            android:valueFrom="-150"
             android:valueTo="0"
             android:valueType="floatType"/>
     </set>
