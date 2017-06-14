@@ -34,7 +34,7 @@ Please use the following implemented animation effects.
 
 ```
 dependencies {
-  compile 'com.fujiyuu75:sequent:0.1.3'
+  compile 'com.fujiyuu75:sequent:0.2.0'
 }
 ```
 
