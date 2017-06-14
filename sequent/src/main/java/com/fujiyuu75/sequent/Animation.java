@@ -5,6 +5,7 @@ package com.fujiyuu75.sequent;
  */
 
 public enum Animation {
+    BOUNCE_IN,
     FADE_IN_UP,
     FADE_IN_LEFT,
     FADE_IN_RIGHT,
