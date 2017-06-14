@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/fujiyuu75/Sequent'
     gitUrl = 'https://github.com/fujiyuu75/Sequent.git'
 
-    libraryVersion = '0.1.3'
+    libraryVersion = '0.2.0'
 
     developerId = 'fujiyuu75' // Maven plugin uses this. I don't know if it needs to be anything special.
     developerName = 'Yuichi Fujikawa'
