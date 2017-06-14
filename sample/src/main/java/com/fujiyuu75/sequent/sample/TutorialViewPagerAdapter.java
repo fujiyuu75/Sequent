@@ -16,12 +16,10 @@ class TutorialViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return new TutorialFragment();
-            case 1:
                 return new TutorialFragment1();
-            case 2:
+            case 1:
                 return new TutorialFragment2();
-            case 3:
+            case 2:
                 return new TutorialFragment3();
             default:
                 return new TutorialFragment();
@@ -30,7 +28,7 @@ class TutorialViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Override

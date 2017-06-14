@@ -27,6 +27,7 @@ public class TutorialFragment1 extends Fragment {
         super.onViewCreated(v, savedInstanceState);
 
         layout = (LinearLayout) v.findViewById(R.id.image_layout);
+        Sequent.origin(layout).anim(getActivity(), R.anim.overshoot).start();
     }
 
     @Override

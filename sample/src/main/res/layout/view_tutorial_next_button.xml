@@ -26,22 +26,13 @@
             android:id="@+id/navi2"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/tutorial_swipe_navi"
             android:orientation="horizontal"/>
 
         <LinearLayout
             android:id="@+id/navi3"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/tutorial_swipe_navi"
-            android:orientation="horizontal"/>
-
-        <LinearLayout
-            android:id="@+id/navi4"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:background="@drawable/tutorial_swipe_navi"

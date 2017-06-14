@@ -11,7 +11,6 @@ public class TutorialActivity extends AppCompatActivity {
     private LinearLayout navi1;
     private LinearLayout navi2;
     private LinearLayout navi3;
-    private LinearLayout navi4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,6 @@ public class TutorialActivity extends AppCompatActivity {
         navi1 = (LinearLayout) findViewById(R.id.navi1);
         navi2 = (LinearLayout) findViewById(R.id.navi2);
         navi3 = (LinearLayout) findViewById(R.id.navi3);
-        navi4 = (LinearLayout) findViewById(R.id.navi4);
 
         viewPager.setAdapter(new TutorialViewPagerAdapter(
                 getSupportFragmentManager()));
@@ -48,25 +46,16 @@ public class TutorialActivity extends AppCompatActivity {
                             navi1.setBackgroundResource(R.drawable.tutorial_swipe_navi_selected);
                             navi2.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             navi3.setBackgroundResource(R.drawable.tutorial_swipe_navi);
-                            navi4.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             break;
                         case 1:
                             navi1.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             navi2.setBackgroundResource(R.drawable.tutorial_swipe_navi_selected);
                             navi3.setBackgroundResource(R.drawable.tutorial_swipe_navi);
-                            navi4.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             break;
                         case 2:
                             navi1.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             navi2.setBackgroundResource(R.drawable.tutorial_swipe_navi);
                             navi3.setBackgroundResource(R.drawable.tutorial_swipe_navi_selected);
-                            navi4.setBackgroundResource(R.drawable.tutorial_swipe_navi);
-                            break;
-                        case 3:
-                            navi1.setBackgroundResource(R.drawable.tutorial_swipe_navi);
-                            navi2.setBackgroundResource(R.drawable.tutorial_swipe_navi);
-                            navi3.setBackgroundResource(R.drawable.tutorial_swipe_navi);
-                            navi4.setBackgroundResource(R.drawable.tutorial_swipe_navi_selected);
                             break;
                     }
                 }
