@@ -2,10 +2,14 @@ package com.fujiyuu75.sequent.sample;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -16,7 +20,6 @@ public class AnimActivity extends AppCompatActivity {
 
     private final static String TAG = AnimActivity.class.getSimpleName();
     private LinearLayout layout;
-    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,6 @@ public class AnimActivity extends AppCompatActivity {
         setContentView(R.layout.activity_anim);
 
         layout = (LinearLayout) findViewById(R.id.layout);
-        spinner = (Spinner) findViewById(R.id.spinner);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,20 @@ public class AnimActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), SampleActivity.class));
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.animation, menu);
+
+        MenuItem item = menu.findItem(R.id.spinner);
+        Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.anims, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -40,7 +56,7 @@ public class AnimActivity extends AppCompatActivity {
                 Log.d(TAG, String.format("%s %s", "selectedItemString", selectedItemString));
                 Log.d(TAG, String.format("%s %s", "position", position));
 
-                switch (position){
+                switch (position) {
                     case 0:
                         Sequent.origin(layout).anim(getApplicationContext(), Animation.BOUNCE_IN).start();
                         break;
@@ -66,5 +82,7 @@ public class AnimActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        return true;
     }
 }

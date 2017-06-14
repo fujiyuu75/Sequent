@@ -65,17 +65,6 @@
             android:textColor="@color/app_black"/>
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="40dp"
-        android:entries="@array/anims"
-        android:background="@color/app_black"
-        android:spinnerMode="dialog"
-        android:textSize="16sp"/>
-
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="match_parent"
