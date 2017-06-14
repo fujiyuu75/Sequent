@@ -5,7 +5,7 @@ package com.fujiyuu75.sequent;
  */
 
 public enum Animation {
-    BOUNCE_IN(R.anim.fade_in_up),
+    BOUNCE_IN(R.anim.bounce_in),
     FADE_IN_DOWN(R.anim.fade_in_down),
     FADE_IN_UP(R.anim.fade_in_up),
     FADE_IN_LEFT(R.anim.fade_in_left),
