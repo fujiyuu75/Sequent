@@ -1,6 +1,7 @@
 <resources>
     <string-array name="anims">
         <item>bounceIn</item>
+        <item>fadeIn</item>
         <item>fadeInDown</item>
         <item>fadeInLeft</item>
         <item>fadeInRight</item>
