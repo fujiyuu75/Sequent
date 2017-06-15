@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +17,6 @@ import com.fujiyuu75.sequent.Sequent;
 
 public class AnimActivity extends AppCompatActivity {
 
-    private final static String TAG = AnimActivity.class.getSimpleName();
     private LinearLayout layout;
 
     @Override
@@ -52,27 +50,26 @@ public class AnimActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItemString = (String) parent.getItemAtPosition(position);
-                Log.d(TAG, String.format("%s %s", "selectedItemString", selectedItemString));
-                Log.d(TAG, String.format("%s %s", "position", position));
-
                 switch (position) {
                     case 0:
                         Sequent.origin(layout).anim(getApplicationContext(), Animation.BOUNCE_IN).start();
                         break;
                     case 1:
-                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_DOWN).start();
+                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN).start();
                         break;
                     case 2:
-                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_LEFT).start();
+                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_DOWN).start();
                         break;
                     case 3:
-                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_RIGHT).start();
+                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_LEFT).start();
                         break;
                     case 4:
-                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_UP).start();
+                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_RIGHT).start();
                         break;
                     case 5:
+                        Sequent.origin(layout).anim(getApplicationContext(), Animation.FADE_IN_UP).start();
+                        break;
+                    case 6:
                         Sequent.origin(layout).anim(getApplicationContext(), Animation.ROTATE_IN).start();
                         break;
                 }
