@@ -28,13 +28,13 @@ Sequent
 
 Please use the following implemented animation effects.
 
-```bounceIn``` ```fadeInDown``` ```fadeInLeft``` ```fadeInRight``` ```fadeInUp``` ```rotateIn```
+```bounceIn``` ```fadeIn``` ```fadeInDown``` ```fadeInLeft``` ```fadeInRight``` ```fadeInUp``` ```rotateIn```
 
 ## Download
 
 ```
 dependencies {
-  compile 'com.fujiyuu75:sequent:0.2.0'
+  compile 'com.fujiyuu75:sequent:0.2.1'
 }
 ```
 
