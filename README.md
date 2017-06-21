@@ -4,8 +4,6 @@
 
 Sequent is a library that starts animation continuously for multiple views at regular intervals.
 
-Continuous animation library like Sequent is also available for [iOS](https://github.com/fujiyuu75/Sequents).
-
 ```
 # Views inheriting ViewGroup are available.
 # e.g. LinearLayout, RelativiLayout, framelayout, etc
@@ -39,6 +37,8 @@ dependencies {
   compile 'com.fujiyuu75:sequent:0.2.1'
 }
 ```
+
+Continuous animation library like Sequent is also available for [iOS](https://github.com/fujiyuu75/Sequents).
 
 ## Bugs and Feedback
 
