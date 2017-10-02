@@ -44,7 +44,7 @@ Continuous animation library like Sequent is also available for [iOS](https://gi
 
 For bugs, questions and discussions please use the github issues.
 
-## Lisense
+## License
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
