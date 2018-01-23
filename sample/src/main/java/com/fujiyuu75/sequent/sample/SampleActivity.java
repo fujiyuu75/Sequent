@@ -17,10 +17,10 @@ public class SampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
-        viewPager = (ViewPager) findViewById(R.id.pager);
-        navi1 = (LinearLayout) findViewById(R.id.navi1);
-        navi2 = (LinearLayout) findViewById(R.id.navi2);
-        navi3 = (LinearLayout) findViewById(R.id.navi3);
+        viewPager = findViewById(R.id.pager);
+        navi1 = findViewById(R.id.navi1);
+        navi2 = findViewById(R.id.navi2);
+        navi3 = findViewById(R.id.navi3);
 
         viewPager.setAdapter(new SampleViewPagerAdapter(
                 getSupportFragmentManager()));

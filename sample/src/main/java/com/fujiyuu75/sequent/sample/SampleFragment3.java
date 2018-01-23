@@ -1,6 +1,7 @@
 package com.fujiyuu75.sequent.sample;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,18 +16,18 @@ public class SampleFragment3 extends Fragment {
     private LinearLayout layout;
 
     @Override
-    public View onCreateView(LayoutInflater inflater,
+    public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_sample_3, null);
+        return inflater.inflate(R.layout.fragment_sample_3, container);
     }
 
     @Override
-    public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 
-        layout = (LinearLayout) v.findViewById(R.id.image_layout);
+        layout = v.findViewById(R.id.image_layout);
     }
 
     @Override
