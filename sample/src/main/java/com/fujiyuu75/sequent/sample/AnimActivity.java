@@ -24,7 +24,7 @@ public class AnimActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anim);
 
-        layout = (LinearLayout) findViewById(R.id.layout);
+        layout = findViewById(R.id.layout);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,7 @@ public class AnimActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.animation, menu);
 
         MenuItem item = menu.findItem(R.id.spinner);
-        Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
+        Spinner spinner = (Spinner) item.getActionView();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.anims, android.R.layout.simple_spinner_item);
